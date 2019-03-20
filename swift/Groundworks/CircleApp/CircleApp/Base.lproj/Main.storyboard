@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CircleApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y57-cY-SUn">
+                                <rect key="frame" x="75" y="121" width="225" height="225"/>
+                                <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="y57-cY-SUn" secondAttribute="height" multiplier="1:1" id="er8-tr-3Kv"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qgv-an-kFj" customClass="ProgressBarView" customModule="CircleApp" customModuleProvider="target">
+                                <rect key="frame" x="65" y="111" width="245" height="245"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZkZ-1H-IRe">
+                                <rect key="frame" x="65" y="386" width="245" height="70"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0bM-Kj-5HA">
+                                        <rect key="frame" x="0.0" y="0.0" width="245" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="max.value" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zUx-E3-qFP">
+                                        <rect key="frame" x="0.0" y="40" width="245" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U26-0l-Rrf">
+                                <rect key="frame" x="65" y="496" width="245" height="37"/>
+                                <color key="backgroundColor" red="0.23921568627450979" green="0.67450980392156867" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Avenir-Light" family="Avenir" pointSize="18"/>
+                                <state key="normal" title="GO">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="caclulatePercent:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lbF-wr-3yF"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVa-EZ-hhR">
+                                <rect key="frame" x="146" y="192.5" width="83" height="82"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-UltraLight" family="Avenir Next" pointSize="60"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Qgv-an-kFj" firstAttribute="centerY" secondItem="y57-cY-SUn" secondAttribute="centerY" id="3a0-R3-gZD"/>
+                            <constraint firstItem="U26-0l-Rrf" firstAttribute="top" secondItem="ZkZ-1H-IRe" secondAttribute="bottom" constant="40" id="5mj-5W-Bdp"/>
+                            <constraint firstItem="U26-0l-Rrf" firstAttribute="leading" secondItem="ZkZ-1H-IRe" secondAttribute="leading" id="7V5-gc-d2Q"/>
+                            <constraint firstItem="UVa-EZ-hhR" firstAttribute="centerX" secondItem="y57-cY-SUn" secondAttribute="centerX" id="ABO-s5-alp"/>
+                            <constraint firstItem="ZkZ-1H-IRe" firstAttribute="top" secondItem="y57-cY-SUn" secondAttribute="bottom" constant="40" id="GcH-mg-bty"/>
+                            <constraint firstItem="y57-cY-SUn" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-100" id="LcB-pd-lUo"/>
+                            <constraint firstItem="y57-cY-SUn" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.6" id="Mie-QE-T2x"/>
+                            <constraint firstItem="UVa-EZ-hhR" firstAttribute="centerY" secondItem="y57-cY-SUn" secondAttribute="centerY" id="VMb-a0-oVM"/>
+                            <constraint firstItem="U26-0l-Rrf" firstAttribute="trailing" secondItem="ZkZ-1H-IRe" secondAttribute="trailing" id="Wb2-xS-Zea"/>
+                            <constraint firstItem="y57-cY-SUn" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WmJ-G1-LbB"/>
+                            <constraint firstItem="Qgv-an-kFj" firstAttribute="height" secondItem="y57-cY-SUn" secondAttribute="height" constant="20" id="Ygn-5W-yp8"/>
+                            <constraint firstItem="Qgv-an-kFj" firstAttribute="centerX" secondItem="y57-cY-SUn" secondAttribute="centerX" id="ejp-Wd-q44"/>
+                            <constraint firstItem="ZkZ-1H-IRe" firstAttribute="leading" secondItem="Qgv-an-kFj" secondAttribute="leading" id="kfi-WI-ph6"/>
+                            <constraint firstItem="Qgv-an-kFj" firstAttribute="width" secondItem="y57-cY-SUn" secondAttribute="width" constant="20" id="qv1-CB-vyl"/>
+                            <constraint firstItem="ZkZ-1H-IRe" firstAttribute="trailing" secondItem="Qgv-an-kFj" secondAttribute="trailing" id="vJC-8w-ITi"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="buttonGo" destination="U26-0l-Rrf" id="Pt3-dL-KZx"/>
+                        <outlet property="downView" destination="y57-cY-SUn" id="pUa-Da-ilE"/>
+                        <outlet property="maxValueTextField" destination="zUx-E3-qFP" id="37P-pL-5To"/>
+                        <outlet property="percentLabel" destination="UVa-EZ-hhR" id="qFe-Aj-Poo"/>
+                        <outlet property="progressBarView" destination="Qgv-an-kFj" id="Z1j-uQ-kFY"/>
+                        <outlet property="valueTextField" destination="0bM-Kj-5HA" id="ypO-80-7fq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
+        </scene>
+    </scenes>
+</document>
