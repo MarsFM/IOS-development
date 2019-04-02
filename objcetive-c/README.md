@@ -123,12 +123,27 @@ NSEdgesInsets
 ```
 
 
+# Лекция 6, Collections
+
+Immutable collections - (thread safe)
+Muttable collections - (Object can add/remove)
+
+```Objective-c
+
+NSArray / NSMutableArray
+NSSet / NSMutableSet
+NSDictionary / NSMutableDictionary
+NSOrderedSet / NSMutableOrderedSet
+NSCountedSet 
+NSIndexSet / NSMutableIndexSet
+NSPointerArray
+NSMapTable
+NShashTable
+
+```
 
 
-
-
-
-
+__bridge
 
 
 
