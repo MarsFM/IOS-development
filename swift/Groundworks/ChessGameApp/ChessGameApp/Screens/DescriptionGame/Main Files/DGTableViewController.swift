@@ -9,31 +9,32 @@
 import UIKit
 
 class DescriptionGameTableViewController: UITableViewController {
-
-    let dataSource = DescriptionGameDataSource()
+    
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var colorSegmentControl: UISegmentedControl!
+    @IBOutlet weak var descriptionTextView: UITextView!
+    
+    var provider: DescriptionGameProvider!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        provider = DescriptionGameProvider(vc: self)
         
-        delegating()
         prepareUITableView()
-        registerStaticCells()
-    }
-    
-    private func delegating() {
-        tableView.dataSource = dataSource
     }
     
     private func prepareUITableView() {
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.allowsSelection = false
     }
+
+    @IBAction func createGameButtonClicked(_ sender: UIButton) {
+        
+    }
     
-    private func registerStaticCells() {
-        tableView.register(NameTableViewCell.self, forCellReuseIdentifier: IdentifierCell.nameCell.rawValue)
-        tableView.register(ColorOfChessTableViewCell.self, forCellReuseIdentifier: IdentifierCell.colorOfChessCell.rawValue)
-        tableView.register(DescriptionTableViewCell.self, forCellReuseIdentifier: IdentifierCell.descriptionGameCell.rawValue)
-        tableView.register(ButtonTableViewCell.self, forCellReuseIdentifier: IdentifierCell.buttonCell.rawValue)
+    
+    @IBAction func chooseColorOfChessClicked(_ sender: UISegmentedControl) {
+        
     }
 
 }

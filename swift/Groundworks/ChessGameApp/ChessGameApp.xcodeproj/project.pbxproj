@@ -11,13 +11,8 @@
 		09155D54225336290076D10E /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09155D53225336290076D10E /* Game.swift */; };
 		09155D56225336500076D10E /* ColorOfChess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09155D55225336500076D10E /* ColorOfChess.swift */; };
 		09155D5822533AD80076D10E /* DGTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09155D5722533AD80076D10E /* DGTableViewCellViewModel.swift */; };
-		09155D5C22534E2B0076D10E /* NameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09155D5B22534E2B0076D10E /* NameTableViewCell.swift */; };
-		09155D5E22534E3F0076D10E /* ColorOfChessTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09155D5D22534E3F0076D10E /* ColorOfChessTableViewCell.swift */; };
-		09155D6022534E500076D10E /* DescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09155D5F22534E500076D10E /* DescriptionTableViewCell.swift */; };
-		09155D6222534E640076D10E /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09155D6122534E640076D10E /* ButtonTableViewCell.swift */; };
 		091679A6224CFB4600FD69C0 /* DescriptionGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 091679A5224CFB4600FD69C0 /* DescriptionGame.storyboard */; };
 		091679AB224CFDF800FD69C0 /* DGTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091679AA224CFDF800FD69C0 /* DGTableViewController.swift */; };
-		091679AD224CFE3400FD69C0 /* DGDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091679AC224CFE3400FD69C0 /* DGDataSource.swift */; };
 		091679B0224D1B4200FD69C0 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091679AF224D1B4200FD69C0 /* Tag.swift */; };
 		091679B4224D359500FD69C0 /* DGProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091679B3224D359500FD69C0 /* DGProvider.swift */; };
 		097201F0224CF2FA0002C83C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097201EF224CF2FA0002C83C /* AppDelegate.swift */; };
@@ -32,13 +27,8 @@
 		09155D53225336290076D10E /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		09155D55225336500076D10E /* ColorOfChess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorOfChess.swift; sourceTree = "<group>"; };
 		09155D5722533AD80076D10E /* DGTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DGTableViewCellViewModel.swift; sourceTree = "<group>"; };
-		09155D5B22534E2B0076D10E /* NameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameTableViewCell.swift; sourceTree = "<group>"; };
-		09155D5D22534E3F0076D10E /* ColorOfChessTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorOfChessTableViewCell.swift; sourceTree = "<group>"; };
-		09155D5F22534E500076D10E /* DescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionTableViewCell.swift; sourceTree = "<group>"; };
-		09155D6122534E640076D10E /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
 		091679A5224CFB4600FD69C0 /* DescriptionGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DescriptionGame.storyboard; sourceTree = "<group>"; };
 		091679AA224CFDF800FD69C0 /* DGTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DGTableViewController.swift; sourceTree = "<group>"; };
-		091679AC224CFE3400FD69C0 /* DGDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DGDataSource.swift; sourceTree = "<group>"; };
 		091679AF224D1B4200FD69C0 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		091679B3224D359500FD69C0 /* DGProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DGProvider.swift; sourceTree = "<group>"; };
 		097201EC224CF2FA0002C83C /* ChessGameApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChessGameApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -64,7 +54,6 @@
 		09155D5922533CE80076D10E /* Main Files */ = {
 			isa = PBXGroup;
 			children = (
-				091679AC224CFE3400FD69C0 /* DGDataSource.swift */,
 				091679B3224D359500FD69C0 /* DGProvider.swift */,
 				091679AA224CFDF800FD69C0 /* DGTableViewController.swift */,
 			);
@@ -74,10 +63,6 @@
 		09155D5A22534E0B0076D10E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				09155D5B22534E2B0076D10E /* NameTableViewCell.swift */,
-				09155D5D22534E3F0076D10E /* ColorOfChessTableViewCell.swift */,
-				09155D5F22534E500076D10E /* DescriptionTableViewCell.swift */,
-				09155D6122534E640076D10E /* ButtonTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -250,15 +235,10 @@
 				091679AB224CFDF800FD69C0 /* DGTableViewController.swift in Sources */,
 				09155D522253350B0076D10E /* DGTableViewViewModel.swift in Sources */,
 				09155D56225336500076D10E /* ColorOfChess.swift in Sources */,
-				09155D5E22534E3F0076D10E /* ColorOfChessTableViewCell.swift in Sources */,
 				091679B4224D359500FD69C0 /* DGProvider.swift in Sources */,
-				09155D6222534E640076D10E /* ButtonTableViewCell.swift in Sources */,
 				097201F2224CF2FA0002C83C /* MainViewController.swift in Sources */,
-				09155D5C22534E2B0076D10E /* NameTableViewCell.swift in Sources */,
-				09155D6022534E500076D10E /* DescriptionTableViewCell.swift in Sources */,
 				097201F0224CF2FA0002C83C /* AppDelegate.swift in Sources */,
 				091679B0224D1B4200FD69C0 /* Tag.swift in Sources */,
-				091679AD224CFE3400FD69C0 /* DGDataSource.swift in Sources */,
 				09155D54225336290076D10E /* Game.swift in Sources */,
 				09155D5822533AD80076D10E /* DGTableViewCellViewModel.swift in Sources */,
 			);

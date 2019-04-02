@@ -17,10 +17,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
                         <sections>
                             <tableViewSection headerTitle="Играю против" id="YXF-jj-vMo">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="nameCell" rowHeight="75" id="aOK-C3-v5B" customClass="NameTableViewCell" customModule="ChessGameApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="nameCell" rowHeight="75" id="aOK-C3-v5B">
                                         <rect key="frame" x="0.0" y="28" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aOK-C3-v5B" id="KcE-ci-jEf">
@@ -46,7 +47,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Какими играю" id="j8y-wG-R0D">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="colorOfChessCell" rowHeight="67" id="I4p-8h-Nlc" customClass="ColorOfChessTableViewCell" customModule="ChessGameApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="colorOfChessCell" rowHeight="67" id="I4p-8h-Nlc">
                                         <rect key="frame" x="0.0" y="131" width="375" height="67"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="I4p-8h-Nlc" id="Itu-nV-S0R">
@@ -60,6 +61,9 @@
                                                         <segment title="Белыми"/>
                                                     </segments>
                                                     <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <connections>
+                                                        <action selector="chooseColorOfChessClicked:" destination="DRN-ni-jwR" eventType="valueChanged" id="aPa-tA-8Fc"/>
+                                                    </connections>
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>
@@ -74,7 +78,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Описание" id="iOj-s2-D8B">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="descriptionGameCell" rowHeight="115" id="Mmb-dr-VMD" customClass="DescriptionTableViewCell" customModule="ChessGameApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="descriptionGameCell" rowHeight="115" id="Mmb-dr-VMD">
                                         <rect key="frame" x="0.0" y="226" width="375" height="115"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Mmb-dr-VMD" id="aPC-bJ-Mpn">
@@ -100,7 +104,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="" id="Ver-L8-YE8">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="buttonCell" rowHeight="70" id="dZ6-Os-6EX" customClass="ButtonTableViewCell" customModule="ChessGameApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="buttonCell" rowHeight="70" id="dZ6-Os-6EX">
                                         <rect key="frame" x="0.0" y="341" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dZ6-Os-6EX" id="uyS-Fl-Pvu">
@@ -115,6 +119,9 @@
                                                     <state key="normal" title="Создать">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="createGameButtonClicked:" destination="DRN-ni-jwR" eventType="touchUpInside" id="KGl-xR-2y8"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -129,10 +136,15 @@
                             </tableViewSection>
                         </sections>
                         <connections>
-                            <outlet property="dataSource" destination="DRN-ni-jwR" id="1HX-YJ-49z"/>
+                            <outlet property="dataSource" destination="DRN-ni-jwR" id="1Gn-OH-0wH"/>
                             <outlet property="delegate" destination="DRN-ni-jwR" id="9zI-z2-r0H"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="colorSegmentControl" destination="hDb-3b-beS" id="b5e-sd-2ls"/>
+                        <outlet property="descriptionTextView" destination="iWo-aw-oUH" id="6hP-md-rtV"/>
+                        <outlet property="nameTextField" destination="U74-iH-Ss2" id="Pev-Cv-byB"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WjV-OW-rfi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

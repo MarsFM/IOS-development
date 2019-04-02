@@ -10,11 +10,11 @@ import Foundation
 
 class Game {
     
-    let name: String
-    let colorOfChess: ColorOfChess
-    let description: String? = nil
+    var name: String
+    var colorOfChess: ColorOfChess
+    var description: String? = nil
     
-    init(name: String, colorOfChess: ColorOfChess) {
+    init(name: String, colorOfChess: ColorOfChess = .white) {
         self.name = name
         self.colorOfChess = colorOfChess
     }
