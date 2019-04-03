@@ -13,8 +13,9 @@ class Game {
     var name: String
     var colorOfChess: ColorOfChess
     var description: String? = nil
+    var fullSteps: [Step] = []
     
-    init(name: String, colorOfChess: ColorOfChess = .white) {
+    init(name: String, colorOfChess: ColorOfChess = .black) {
         self.name = name
         self.colorOfChess = colorOfChess
     }

@@ -39,6 +39,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="qcr-wQ-kvm"/>
+                    <connections>
+                        <segue destination="hxg-L2-Njs" kind="show" identifier="ShowStepGames" id="t8z-XL-MWN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -50,7 +53,15 @@
                 <viewControllerPlaceholder storyboardName="DescriptionGame" id="h2k-u8-CfM" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aUL-dS-LOT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2095" y="131"/>
+            <point key="canvasLocation" x="2188" y="-52"/>
+        </scene>
+        <!--StepsOfGame-->
+        <scene sceneID="wU0-gj-nIT">
+            <objects>
+                <viewControllerPlaceholder storyboardName="StepsOfGame" id="hxg-L2-Njs" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H22-wP-nkj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2205" y="301"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BcE-jw-BfC">

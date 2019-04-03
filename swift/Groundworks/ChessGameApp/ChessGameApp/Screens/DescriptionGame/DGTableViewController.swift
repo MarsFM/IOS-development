@@ -14,7 +14,7 @@ class DescriptionGameTableViewController: UITableViewController {
     @IBOutlet weak var colorSegmentControl: UISegmentedControl!
     @IBOutlet weak var descriptionTextView: UITextView!
     
-    var provider: DescriptionGameProvider!
+    var provider: DGProviderProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,14 +27,20 @@ class DescriptionGameTableViewController: UITableViewController {
         tableView.tableFooterView = UIView(frame: .zero)
         tableView.allowsSelection = false
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let vc = segue.destination as! SOGViewController
+        vc.game = provider.game
+    }
 
     @IBAction func createGameButtonClicked(_ sender: UIButton) {
-        
+        provider.createGame {
+            self.performSegue(withIdentifier: "ShowStepsOfgame", sender: nil)
+        }
     }
     
-    
     @IBAction func chooseColorOfChessClicked(_ sender: UISegmentedControl) {
-        
+        provider.setColor(sender.selectedSegmentIndex)
     }
 
 }

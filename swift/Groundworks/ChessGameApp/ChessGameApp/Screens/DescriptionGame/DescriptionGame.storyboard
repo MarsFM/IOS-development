@@ -85,7 +85,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="114.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" text="Первая игра на чемпионате России" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iWo-aw-oUH">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" text="Испанская партия" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="iWo-aw-oUH">
                                                     <rect key="frame" x="16" y="10" width="343" height="94.5"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -144,11 +144,20 @@
                         <outlet property="colorSegmentControl" destination="hDb-3b-beS" id="b5e-sd-2ls"/>
                         <outlet property="descriptionTextView" destination="iWo-aw-oUH" id="6hP-md-rtV"/>
                         <outlet property="nameTextField" destination="U74-iH-Ss2" id="Pev-Cv-byB"/>
+                        <segue destination="VKj-Ec-8RW" kind="presentation" identifier="ShowStepsOfgame" id="1MA-yh-cRh"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WjV-OW-rfi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-146.40000000000001" y="143.47826086956522"/>
+        </scene>
+        <!--StepsOfGame-->
+        <scene sceneID="O8D-FY-U9Z">
+            <objects>
+                <viewControllerPlaceholder storyboardName="StepsOfGame" id="VKj-Ec-8RW" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j9f-P2-HJD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="520" y="143"/>
         </scene>
     </scenes>
 </document>
