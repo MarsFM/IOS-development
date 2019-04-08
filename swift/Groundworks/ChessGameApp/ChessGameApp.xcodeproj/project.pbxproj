@@ -13,17 +13,21 @@
 		091679AB224CFDF800FD69C0 /* DGTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091679AA224CFDF800FD69C0 /* DGTableViewController.swift */; };
 		091679B4224D359500FD69C0 /* DGProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091679B3224D359500FD69C0 /* DGProvider.swift */; };
 		0939DFDC2254A22300C27CCD /* SOGPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0939DFDB2254A22300C27CCD /* SOGPresenter.swift */; };
-		0939DFDE2254B17D00C27CCD /* FullStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0939DFDD2254B17D00C27CCD /* FullStep.swift */; };
 		0939DFE02254E02300C27CCD /* SOGViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0939DFDF2254E02300C27CCD /* SOGViewModel.swift */; };
 		097201F0224CF2FA0002C83C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097201EF224CF2FA0002C83C /* AppDelegate.swift */; };
 		097201F2224CF2FA0002C83C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097201F1224CF2FA0002C83C /* MainViewController.swift */; };
 		097201F5224CF2FA0002C83C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 097201F3224CF2FA0002C83C /* Main.storyboard */; };
 		097201F7224CF2FB0002C83C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 097201F6224CF2FB0002C83C /* Assets.xcassets */; };
 		097201FA224CF2FB0002C83C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 097201F8224CF2FB0002C83C /* LaunchScreen.storyboard */; };
+		098D6E042255DBE80026778F /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D6E032255DBE80026778F /* MainPresenter.swift */; };
+		098D6E062255DBF00026778F /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D6E052255DBF00026778F /* MainViewModel.swift */; };
+		098D6E092255F6740026778F /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D6E082255F6740026778F /* MainCell.swift */; };
+		099462C42255D59800F1796E /* MainDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099462C32255D59800F1796E /* MainDataSource.swift */; };
 		09EBD8DC2253A4C500E6D837 /* StepsOfGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09EBD8DB2253A4C500E6D837 /* StepsOfGame.storyboard */; };
 		09EBD8DE2253A50000E6D837 /* SOGGamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EBD8DD2253A50000E6D837 /* SOGGamesViewController.swift */; };
 		09EBD8E02253A60100E6D837 /* DGProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EBD8DF2253A60100E6D837 /* DGProtocols.swift */; };
 		09EBD8E22253B12400E6D837 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EBD8E12253B12400E6D837 /* Step.swift */; };
+		09FFFF6E2257715E00D22B89 /* SOGCheckSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FFFF6D2257715E00D22B89 /* SOGCheckSymbol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +37,6 @@
 		091679AA224CFDF800FD69C0 /* DGTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DGTableViewController.swift; sourceTree = "<group>"; };
 		091679B3224D359500FD69C0 /* DGProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DGProvider.swift; sourceTree = "<group>"; };
 		0939DFDB2254A22300C27CCD /* SOGPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOGPresenter.swift; sourceTree = "<group>"; };
-		0939DFDD2254B17D00C27CCD /* FullStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullStep.swift; sourceTree = "<group>"; };
 		0939DFDF2254E02300C27CCD /* SOGViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOGViewModel.swift; sourceTree = "<group>"; };
 		097201EC224CF2FA0002C83C /* ChessGameApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChessGameApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		097201EF224CF2FA0002C83C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -42,10 +45,15 @@
 		097201F6224CF2FB0002C83C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		097201F9224CF2FB0002C83C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		097201FB224CF2FB0002C83C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		098D6E032255DBE80026778F /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		098D6E052255DBF00026778F /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		098D6E082255F6740026778F /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
+		099462C32255D59800F1796E /* MainDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDataSource.swift; sourceTree = "<group>"; };
 		09EBD8DB2253A4C500E6D837 /* StepsOfGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StepsOfGame.storyboard; sourceTree = "<group>"; };
 		09EBD8DD2253A50000E6D837 /* SOGGamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOGGamesViewController.swift; sourceTree = "<group>"; };
 		09EBD8DF2253A60100E6D837 /* DGProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DGProtocols.swift; sourceTree = "<group>"; };
 		09EBD8E12253B12400E6D837 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
+		09FFFF6D2257715E00D22B89 /* SOGCheckSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOGCheckSymbol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +82,6 @@
 			children = (
 				09155D55225336500076D10E /* ColorOfChess.swift */,
 				09155D53225336290076D10E /* Game.swift */,
-				0939DFDD2254B17D00C27CCD /* FullStep.swift */,
 				09EBD8E12253B12400E6D837 /* Step.swift */,
 			);
 			path = Model;
@@ -120,7 +127,11 @@
 		09720202224CF9A90002C83C /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				098D6E072255F6610026778F /* View */,
 				097201F1224CF2FA0002C83C /* MainViewController.swift */,
+				099462C32255D59800F1796E /* MainDataSource.swift */,
+				098D6E032255DBE80026778F /* MainPresenter.swift */,
+				098D6E052255DBF00026778F /* MainViewModel.swift */,
 				097201F3224CF2FA0002C83C /* Main.storyboard */,
 			);
 			path = Main;
@@ -137,12 +148,21 @@
 			path = DescriptionGame;
 			sourceTree = "<group>";
 		};
+		098D6E072255F6610026778F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				098D6E082255F6740026778F /* MainCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		09EBD8DA2253A40400E6D837 /* Steps Game */ = {
 			isa = PBXGroup;
 			children = (
 				09EBD8DB2253A4C500E6D837 /* StepsOfGame.storyboard */,
 				09EBD8DD2253A50000E6D837 /* SOGGamesViewController.swift */,
 				0939DFDB2254A22300C27CCD /* SOGPresenter.swift */,
+				09FFFF6D2257715E00D22B89 /* SOGCheckSymbol.swift */,
 				0939DFDF2254E02300C27CCD /* SOGViewModel.swift */,
 			);
 			path = "Steps Game";
@@ -221,10 +241,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0939DFDE2254B17D00C27CCD /* FullStep.swift in Sources */,
+				099462C42255D59800F1796E /* MainDataSource.swift in Sources */,
 				091679AB224CFDF800FD69C0 /* DGTableViewController.swift in Sources */,
 				0939DFE02254E02300C27CCD /* SOGViewModel.swift in Sources */,
 				09155D56225336500076D10E /* ColorOfChess.swift in Sources */,
+				098D6E062255DBF00026778F /* MainViewModel.swift in Sources */,
+				098D6E042255DBE80026778F /* MainPresenter.swift in Sources */,
+				09FFFF6E2257715E00D22B89 /* SOGCheckSymbol.swift in Sources */,
 				09EBD8E22253B12400E6D837 /* Step.swift in Sources */,
 				09EBD8E02253A60100E6D837 /* DGProtocols.swift in Sources */,
 				091679B4224D359500FD69C0 /* DGProvider.swift in Sources */,
@@ -232,6 +255,7 @@
 				097201F0224CF2FA0002C83C /* AppDelegate.swift in Sources */,
 				09155D54225336290076D10E /* Game.swift in Sources */,
 				0939DFDC2254A22300C27CCD /* SOGPresenter.swift in Sources */,
+				098D6E092255F6740026778F /* MainCell.swift in Sources */,
 				09EBD8DE2253A50000E6D837 /* SOGGamesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

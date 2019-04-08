@@ -13,39 +13,120 @@
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="ChessGameApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" id="BYZ-38-t0r" customClass="MainViewController" customModule="ChessGameApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jV2-rw-TTA">
-                                <rect key="frame" x="85" y="302" width="205" height="63"/>
-                                <color key="backgroundColor" red="0.48828125" green="0.85232204860000005" blue="0.99952143429999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
-                                <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
-                                <state key="normal" title="Записать партию">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <connections>
-                                    <segue destination="h2k-u8-CfM" kind="show" id="2Ui-7l-DIa"/>
-                                </connections>
-                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="44M-fP-Tqy">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" rowHeight="113" id="NJN-UZ-bpx" customClass="MainCell" customModule="ChessGameApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="113"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NJN-UZ-bpx" id="QsJ-6Y-o74">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="112.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6N6-Wt-sjY">
+                                                    <rect key="frame" x="10" y="21" width="355" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="45U-Hf-Hl7">
+                                                    <rect key="frame" x="10" y="51.5" width="355" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="752" text="description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dK-XK-AfB">
+                                                    <rect key="frame" x="10" y="82" width="355" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="45U-Hf-Hl7" firstAttribute="leading" secondItem="QsJ-6Y-o74" secondAttribute="leading" constant="10" id="29X-o6-Sl6"/>
+                                                <constraint firstAttribute="trailing" secondItem="45U-Hf-Hl7" secondAttribute="trailing" constant="10" id="4hD-Al-3T1"/>
+                                                <constraint firstItem="4dK-XK-AfB" firstAttribute="leading" secondItem="QsJ-6Y-o74" secondAttribute="leading" constant="10" id="9z7-ym-NGZ"/>
+                                                <constraint firstItem="45U-Hf-Hl7" firstAttribute="top" secondItem="6N6-Wt-sjY" secondAttribute="bottom" constant="10" id="GMw-LF-hzk"/>
+                                                <constraint firstAttribute="trailing" secondItem="6N6-Wt-sjY" secondAttribute="trailing" constant="10" id="UDQ-fe-3TZ"/>
+                                                <constraint firstItem="6N6-Wt-sjY" firstAttribute="leading" secondItem="QsJ-6Y-o74" secondAttribute="leading" constant="10" id="b2t-kR-jLs"/>
+                                                <constraint firstAttribute="trailing" secondItem="4dK-XK-AfB" secondAttribute="trailing" constant="10" id="hMt-s3-6Hb"/>
+                                                <constraint firstItem="6N6-Wt-sjY" firstAttribute="top" secondItem="QsJ-6Y-o74" secondAttribute="topMargin" constant="10" id="khy-Yc-FLf"/>
+                                                <constraint firstItem="4dK-XK-AfB" firstAttribute="top" secondItem="45U-Hf-Hl7" secondAttribute="bottom" constant="10" id="tzp-GT-nVP"/>
+                                                <constraint firstAttribute="bottom" secondItem="4dK-XK-AfB" secondAttribute="bottom" constant="10" id="xzB-38-4wV"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descriptionLabel" destination="4dK-XK-AfB" id="9QM-e4-uMS"/>
+                                            <outlet property="nameLabel" destination="6N6-Wt-sjY" id="EA9-V0-iQv"/>
+                                            <outlet property="typeColorLabel" destination="45U-Hf-Hl7" id="KQt-f8-rv3"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jQs-wI-VUY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="У вас пока нет партий, создайте первую партию" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvN-Sb-X8f">
+                                        <rect key="frame" x="20" y="313" width="335" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wul-VU-nZq">
+                                        <rect key="frame" x="103" y="394" width="169" height="44"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="10" maxX="20" maxY="10"/>
+                                        <state key="normal" title="Новая партия">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="createNewGameButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nxL-tm-lEi"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="gvN-Sb-X8f" secondAttribute="trailing" constant="20" id="HBC-hX-UbS"/>
+                                    <constraint firstItem="Wul-VU-nZq" firstAttribute="centerX" secondItem="jQs-wI-VUY" secondAttribute="centerX" id="M6N-os-fb3"/>
+                                    <constraint firstItem="Wul-VU-nZq" firstAttribute="top" secondItem="gvN-Sb-X8f" secondAttribute="bottom" constant="40" id="P6U-zw-DUZ"/>
+                                    <constraint firstItem="gvN-Sb-X8f" firstAttribute="leading" secondItem="jQs-wI-VUY" secondAttribute="leading" constant="20" id="SGV-Wc-6XR"/>
+                                    <constraint firstItem="gvN-Sb-X8f" firstAttribute="centerY" secondItem="jQs-wI-VUY" secondAttribute="centerY" id="mbQ-hn-bcX"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="jV2-rw-TTA" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1O7-26-7tq"/>
-                            <constraint firstItem="jV2-rw-TTA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="MzS-y6-7SY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="jQs-wI-VUY" secondAttribute="trailing" id="2yB-oq-U0e"/>
+                            <constraint firstItem="44M-fP-Tqy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="D49-NT-Y6c"/>
+                            <constraint firstItem="44M-fP-Tqy" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="LZv-Tr-mJH"/>
+                            <constraint firstItem="jQs-wI-VUY" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="TH2-3G-IS0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="jQs-wI-VUY" secondAttribute="bottom" id="XQI-Gp-tbh"/>
+                            <constraint firstItem="44M-fP-Tqy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ahP-Ck-MDY"/>
+                            <constraint firstItem="44M-fP-Tqy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="svW-y9-Idi"/>
+                            <constraint firstItem="jQs-wI-VUY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="woz-XS-HIr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="qcr-wQ-kvm"/>
                     <connections>
-                        <segue destination="hxg-L2-Njs" kind="show" identifier="ShowStepGames" id="t8z-XL-MWN"/>
+                        <outlet property="newGameButton" destination="Wul-VU-nZq" id="oMA-Yx-DqA"/>
+                        <outlet property="newGameView" destination="jQs-wI-VUY" id="xe2-K9-uwc"/>
+                        <outlet property="tableView" destination="44M-fP-Tqy" id="TWI-ov-6AN"/>
+                        <segue destination="hxg-L2-Njs" kind="show" identifier="GameSegue" id="t8z-XL-MWN"/>
+                        <segue destination="h2k-u8-CfM" kind="show" identifier="NewGameSegue" id="OF8-MY-K4D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1290" y="132"/>
+            <point key="canvasLocation" x="1288.8" y="131.78410794602701"/>
         </scene>
         <!--DescriptionGame-->
         <scene sceneID="7k1-ee-klk">
@@ -53,7 +134,7 @@
                 <viewControllerPlaceholder storyboardName="DescriptionGame" id="h2k-u8-CfM" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aUL-dS-LOT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2188" y="-52"/>
+            <point key="canvasLocation" x="2222" y="-85"/>
         </scene>
         <!--StepsOfGame-->
         <scene sceneID="wU0-gj-nIT">

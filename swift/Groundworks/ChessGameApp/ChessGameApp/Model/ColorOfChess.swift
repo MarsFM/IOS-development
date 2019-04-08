@@ -9,6 +9,6 @@
 import Foundation
 
 enum ColorOfChess: String {
-    case black
-    case white
+    case black = "Чёрные"
+    case white = "Белые"
 }

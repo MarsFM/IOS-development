@@ -10,113 +10,139 @@ import Foundation
 
 class SOGPresenter {
     
+    var checkSymbol = SOGCheckSymbol()
     var game: Game!
-    var fullStep = FullStep()
-    var step = Step()
+    var step: Step = Step()
     var position1 = Position()
     var position2 = Position()
     
     weak var vc: SOGViewController?
     var viewModel = SOGViewModel()
+    var count = 1
+    var isEditing = false
+    var stepString = ""
     
     init(vc: SOGViewController) {
         self.vc = vc
         game = vc.game
+        isEditing = vc.isEdit
     }
     
     func write(_ symbol: String) {
-        let figure = checkFigure(symbol)
-        let letter = checkLetter(symbol)
-        let number = checkNumber(symbol)
+        
+        let figure = checkSymbol.checkFigure(symbol)
+        let letter = checkSymbol.checkLetter(symbol)
+        let number = checkSymbol.checkNumber(symbol)
         
         if let figure = figure {
-            if (step.figure == nil) {
-                step.figure = Figure(rawValue: figure)
-                viewModel.setValue("\(step.figure!.rawValue)", forKey: "str")
-            }
+            writeFigure(figure)
         }
         
         guard (step.figure != nil) else { return }
         
         if let letter = letter {
-            if (position1.letter == nil) {
-                position1.letter = Letter(rawValue: letter)
-                viewModel.setValue("\(position1.letter!.rawValue)", forKey: "str")
-            }
+            writeLetter(letter)
         }
         
         guard (position1.letter != nil) else { return }
         
-        if let number = number {
-            if (position1.number == nil) {
-                position1.number = Int(number)
-                viewModel.setValue("\(position1.number!)", forKey: "str")
-                step.position1 = position1
-            }
+        if let value = number, let number = Int(value)  {
+            writeNumber(number)
         }
         
         guard (position1.number != nil) else { return }
         
         if let letter = letter {
-            if (position2.letter == nil) {
-                position2.letter = Letter(rawValue: letter)
-                viewModel.setValue(" - \(position2.letter!.rawValue)", forKey: "str")
-            }
+            writeLetterBlack(letter)
         }
         
         guard (position2.letter != nil) else { return }
         
-        if let number = number {
-            if (position2.number == nil) {
-                position2.number = Int(number)
-                viewModel.setValue("\(position2.number!)", forKey: "str")
-                step.position2 = position2
-            }
+        if let value = number, let number = Int(value)  {
+            writeNumberBlack(number)
         }
         
         guard (position2.number != nil) else { return }
         
-        fullStep.steps.append(step)
-        game.fullSteps = fullStep.steps
+        addToFullsteps()
+        setEmptySpace()
+        createNewStep()
+    }
+    
+    private func writeFigure(_ figure: String) {
+        guard step.figure == nil else { return }
+        step.figure = Figure(rawValue: figure)
+        writeNumberStep()
+    }
+    
+    private func writeNumberStep() {
+        var value = ""
+        if (game.steps.count % 2 == 0) {
+            value = "\(count). \(step.figure!.rawValue)"
+            count += 1
+        } else {
+            value = "\(step.figure!.rawValue)"
+        }
+        viewModel.setValue(value, forKey: "str")
+    }
+    
+    private func writeLetter(_ letter: String) {
+        guard position1.letter == nil else { return }
+        position1.letter = Letter(rawValue: letter)
+        let value = "\(position1.letter!)"
+        viewModel.setValue(value, forKey: "str")
+    }
+    
+    private func writeNumber(_ number: Int) {
+        guard position1.number == nil else { return }
+        position1.number = number
+        let value = "\(position1.number!)"
+        viewModel.setValue(value, forKey: "str")
+        step.position1 = position1
+    }
+    
+    private  func writeLetterBlack(_ letter: String) {
+        guard position2.letter == nil else { return }
+        position2.letter = Letter(rawValue: letter)
+        let value = " - \(position2.letter!)"
+        viewModel.setValue(value, forKey: "str")
+    }
+    
+    private func writeNumberBlack(_ number: Int) {
+        guard position2.number == nil else { return }
+        position2.number = number
+        let value = "\(position2.number!)"
+        viewModel.setValue(value, forKey: "str")
+        step.position2 = position2
+    }
+    
+    private func addToFullsteps() {
+        game.steps.append(step)
+    }
+    
+    private func createNewStep() {
         step = Step()
         position1 = Position()
         position2 = Position()
-        viewModel.setValue(" ", forKey: "str")
     }
     
-    func checkLetter(_ symbol: String) -> String? {
-        switch symbol {
-        case Letter.a.rawValue: return "a"
-        case Letter.b.rawValue: return "b"
-        case Letter.c.rawValue: return "c"
-        case Letter.d.rawValue: return "d"
-        case Letter.e.rawValue: return "e"
-        case Letter.f.rawValue: return "f"
-        case Letter.g.rawValue: return "g"
-        case Letter.h.rawValue: return "h"
-        default: return nil
-        }
-    }
-    
-    private func checkFigure(_ symbol: String) -> String? {
-        switch symbol {
-        case Figure.P.rawValue: return Figure.P.rawValue
-        case Figure.B.rawValue: return Figure.B.rawValue
-        case Figure.N.rawValue: return Figure.N.rawValue
-        case Figure.R.rawValue: return Figure.R.rawValue
-        case Figure.Q.rawValue: return Figure.Q.rawValue
-        case Figure.K.rawValue: return Figure.K.rawValue
-        default: return nil
-        }
-    }
-    
-    private func checkNumber(_ symbol: String) -> String? {
-        guard let number = Int(symbol) else { return nil}
-        if (number >= 1 && number <= 8) {
-            return "\(number)"
+    private func setEmptySpace() {
+        if (game.steps.count % 2 == 0) {
+            viewModel.setValue("\n", forKey: "str")
+            return
         }
         
-        return nil
+        viewModel.setValue("   ", forKey: "str")
     }
+    
+    var str = ""
+    var i = 1
+    
+    func deleteLastSymbol() {
+        
+        let currentStep = step
+        
+    }
+
     
 }

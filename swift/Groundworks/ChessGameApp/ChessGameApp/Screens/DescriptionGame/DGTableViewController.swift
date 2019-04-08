@@ -15,6 +15,7 @@ class DescriptionGameTableViewController: UITableViewController {
     @IBOutlet weak var descriptionTextView: UITextView!
     
     var provider: DGProviderProtocol!
+    var addToGames: ((Game) -> Void)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,12 +30,15 @@ class DescriptionGameTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.destination as! SOGViewController
+        let nc = segue.destination as! UINavigationController
+        let vc = nc.topViewController as! SOGViewController
         vc.game = provider.game
+        vc.isEdit = false
     }
 
     @IBAction func createGameButtonClicked(_ sender: UIButton) {
         provider.createGame {
+            self.addToGames(self.provider.game)
             self.performSegue(withIdentifier: "ShowStepsOfgame", sender: nil)
         }
     }
