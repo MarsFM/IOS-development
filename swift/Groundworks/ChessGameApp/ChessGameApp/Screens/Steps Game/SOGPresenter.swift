@@ -19,6 +19,7 @@ class SOGPresenter {
     init(vc: SOGViewController) {
         self.vc = vc
         game = vc.game
+        count = UserDefaults.standard.integer(forKey: "Count") 
     }
     
     func write(_ symbol: String) {
@@ -48,6 +49,7 @@ class SOGPresenter {
         let value = str.removeLast()
         if value == "\n" {
             count -= 1
+            UserDefaults.standard.set(count, forKey: "Count")
         }
         vc?.canvasStepsTextView.text = str
         game.allSteps = str
@@ -58,6 +60,7 @@ class SOGPresenter {
         if value == "\n" {
             count += 1
             value += "\(count)."
+            UserDefaults.standard.set(count, forKey: "Count")
         }
         viewModel.setValue(value, forKey: "str")
         game.allSteps += value
@@ -70,11 +73,12 @@ class SOGPresenter {
     }
     
     func deleteCursor() {
-        guard let str = vc?.canvasStepsTextView.text else { return }
+        guard let str = vc?.canvasStepsTextView.text, !str.isEmpty else { return }
         vc?.canvasStepsTextView.text.remove(at: str.index(before: str.endIndex))
     }
     
     func setCursor() {
+        guard !vc!.canvasStepsTextView!.text!.isEmpty else { return }
         vc?.canvasStepsTextView.text += "|"
     }
     

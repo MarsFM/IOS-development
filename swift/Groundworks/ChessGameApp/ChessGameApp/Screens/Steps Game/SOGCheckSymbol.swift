@@ -54,7 +54,7 @@ struct SOGCheckSymbol {
     
     func checkSigns(_ symbol: String) -> String? {
         switch symbol {
-        case "•": return "."
+        case "!": return "!"
         case "-": return "-"
         case "пробел": return " "
         case "⬇︎": return "\n"

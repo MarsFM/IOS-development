@@ -40,7 +40,6 @@ class SOGViewController: UIViewController {
         viewModel = presenter.viewModel
     }
 
-    
     private func setObserverForViewModel() {
         viewModel.addObserver(self, forKeyPath: "str", options: [.new], context: nil)
     }
