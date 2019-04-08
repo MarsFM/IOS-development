@@ -8,17 +8,6 @@
 
 import Foundation
 
-struct Step {
-    var figure: Figure?
-    var position1: Position?
-    var position2: Position?
-}
-
-struct Position {
-    var letter: Letter?
-    var number: Int?
-}
-
 enum Figure: String {
     case P = "♙"
     case B = "♗"
@@ -26,8 +15,4 @@ enum Figure: String {
     case R = "♖"
     case Q = "♕"
     case K = "♔"
-}
-
-enum Letter: String {
-    case a,b,c,d,e,f,g,h
 }

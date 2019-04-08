@@ -38,11 +38,28 @@ struct SOGCheckSymbol {
     
     func checkNumber(_ symbol: String) -> String? {
         guard let number = Int(symbol) else { return nil}
-        if (number >= 1 && number <= 8) {
-            return "\(number)"
+        switch number {
+        case 0...9: return "\(number)"
+        default: return nil
         }
-        
-        return nil
+    }
+    
+    func checkState(_ symbol: String) -> String? {
+        switch symbol {
+        case "шах": return Action.shah.rawValue
+        case "мат": return Action.mat.rawValue
+        default: return nil
+        }
+    }
+    
+    func checkSigns(_ symbol: String) -> String? {
+        switch symbol {
+        case "•": return "."
+        case "-": return "-"
+        case "пробел": return " "
+        case "⬇︎": return "\n"
+        default: return nil
+        }
     }
     
 }

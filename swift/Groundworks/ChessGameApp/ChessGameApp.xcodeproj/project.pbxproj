@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		09155D54225336290076D10E /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09155D53225336290076D10E /* Game.swift */; };
-		09155D56225336500076D10E /* ColorOfChess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09155D55225336500076D10E /* ColorOfChess.swift */; };
+		09155D56225336500076D10E /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09155D55225336500076D10E /* Color.swift */; };
 		091679A6224CFB4600FD69C0 /* DescriptionGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 091679A5224CFB4600FD69C0 /* DescriptionGame.storyboard */; };
 		091679AB224CFDF800FD69C0 /* DGTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091679AA224CFDF800FD69C0 /* DGTableViewController.swift */; };
 		091679B4224D359500FD69C0 /* DGProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091679B3224D359500FD69C0 /* DGProvider.swift */; };
@@ -23,16 +23,18 @@
 		098D6E062255DBF00026778F /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D6E052255DBF00026778F /* MainViewModel.swift */; };
 		098D6E092255F6740026778F /* MainCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098D6E082255F6740026778F /* MainCell.swift */; };
 		099462C42255D59800F1796E /* MainDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099462C32255D59800F1796E /* MainDataSource.swift */; };
+		09C56E01225B4A500079112B /* Letter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C56E00225B4A500079112B /* Letter.swift */; };
+		09C56E03225B4A780079112B /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09C56E02225B4A780079112B /* Action.swift */; };
 		09EBD8DC2253A4C500E6D837 /* StepsOfGame.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09EBD8DB2253A4C500E6D837 /* StepsOfGame.storyboard */; };
 		09EBD8DE2253A50000E6D837 /* SOGGamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EBD8DD2253A50000E6D837 /* SOGGamesViewController.swift */; };
 		09EBD8E02253A60100E6D837 /* DGProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EBD8DF2253A60100E6D837 /* DGProtocols.swift */; };
-		09EBD8E22253B12400E6D837 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EBD8E12253B12400E6D837 /* Step.swift */; };
+		09EBD8E22253B12400E6D837 /* Figure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09EBD8E12253B12400E6D837 /* Figure.swift */; };
 		09FFFF6E2257715E00D22B89 /* SOGCheckSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FFFF6D2257715E00D22B89 /* SOGCheckSymbol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		09155D53225336290076D10E /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
-		09155D55225336500076D10E /* ColorOfChess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorOfChess.swift; sourceTree = "<group>"; };
+		09155D55225336500076D10E /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		091679A5224CFB4600FD69C0 /* DescriptionGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DescriptionGame.storyboard; sourceTree = "<group>"; };
 		091679AA224CFDF800FD69C0 /* DGTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DGTableViewController.swift; sourceTree = "<group>"; };
 		091679B3224D359500FD69C0 /* DGProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DGProvider.swift; sourceTree = "<group>"; };
@@ -49,10 +51,12 @@
 		098D6E052255DBF00026778F /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		098D6E082255F6740026778F /* MainCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCell.swift; sourceTree = "<group>"; };
 		099462C32255D59800F1796E /* MainDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainDataSource.swift; sourceTree = "<group>"; };
+		09C56E00225B4A500079112B /* Letter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Letter.swift; sourceTree = "<group>"; };
+		09C56E02225B4A780079112B /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 		09EBD8DB2253A4C500E6D837 /* StepsOfGame.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StepsOfGame.storyboard; sourceTree = "<group>"; };
 		09EBD8DD2253A50000E6D837 /* SOGGamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOGGamesViewController.swift; sourceTree = "<group>"; };
 		09EBD8DF2253A60100E6D837 /* DGProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DGProtocols.swift; sourceTree = "<group>"; };
-		09EBD8E12253B12400E6D837 /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
+		09EBD8E12253B12400E6D837 /* Figure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Figure.swift; sourceTree = "<group>"; };
 		09FFFF6D2257715E00D22B89 /* SOGCheckSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOGCheckSymbol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,9 +84,11 @@
 		091679B1224D356300FD69C0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				09155D55225336500076D10E /* ColorOfChess.swift */,
 				09155D53225336290076D10E /* Game.swift */,
-				09EBD8E12253B12400E6D837 /* Step.swift */,
+				09EBD8E12253B12400E6D837 /* Figure.swift */,
+				09C56E00225B4A500079112B /* Letter.swift */,
+				09155D55225336500076D10E /* Color.swift */,
+				09C56E02225B4A780079112B /* Action.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -242,15 +248,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				099462C42255D59800F1796E /* MainDataSource.swift in Sources */,
+				09C56E03225B4A780079112B /* Action.swift in Sources */,
 				091679AB224CFDF800FD69C0 /* DGTableViewController.swift in Sources */,
 				0939DFE02254E02300C27CCD /* SOGViewModel.swift in Sources */,
-				09155D56225336500076D10E /* ColorOfChess.swift in Sources */,
+				09155D56225336500076D10E /* Color.swift in Sources */,
 				098D6E062255DBF00026778F /* MainViewModel.swift in Sources */,
 				098D6E042255DBE80026778F /* MainPresenter.swift in Sources */,
 				09FFFF6E2257715E00D22B89 /* SOGCheckSymbol.swift in Sources */,
-				09EBD8E22253B12400E6D837 /* Step.swift in Sources */,
+				09EBD8E22253B12400E6D837 /* Figure.swift in Sources */,
 				09EBD8E02253A60100E6D837 /* DGProtocols.swift in Sources */,
 				091679B4224D359500FD69C0 /* DGProvider.swift in Sources */,
+				09C56E01225B4A500079112B /* Letter.swift in Sources */,
 				097201F2224CF2FA0002C83C /* MainViewController.swift in Sources */,
 				097201F0224CF2FA0002C83C /* AppDelegate.swift in Sources */,
 				09155D54225336290076D10E /* Game.swift in Sources */,

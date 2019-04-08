@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum ColorOfChess: String {
+enum Color: String {
     case black = "Чёрные"
     case white = "Белые"
 }

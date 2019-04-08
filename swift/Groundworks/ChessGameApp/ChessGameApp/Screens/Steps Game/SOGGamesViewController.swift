@@ -28,68 +28,18 @@ class SOGViewController: UIViewController {
         prepareUI()
         setConfigure()
         setObserverForViewModel()
-        if game != nil {
-            canvasStepsTextView.text = game.witeParty
-        }
-        showStepsOfGame()
-    }
-    
-    private func showStepsOfGame() {
-        if (!game.steps.isEmpty) {
-            var i = 1
-            for (index, step) in game.steps.enumerated() {
-                if (index % 2 == 0) {
-                    if let figure = step.figure {
-                        canvasStepsTextView.text += "\(i). \(figure.rawValue)"
-                    }
-                    if let letter1 = step.position1?.letter {
-                        canvasStepsTextView.text += "\(letter1.rawValue)"
-                    }
-                    if let number1 = step.position1?.number {
-                        canvasStepsTextView.text += "\(number1) - "
-                    }
-                    
-                    if let letter2 = step.position2?.letter {
-                        canvasStepsTextView.text += "\(letter2.rawValue)"
-                    }
-                    if let number2 = step.position2?.number {
-                        canvasStepsTextView.text += "\(number2)  "
-                    }
-                    i+=1
-                } else {
-                    if let figure = step.figure {
-                        canvasStepsTextView.text += "\(figure.rawValue)"
-                    }
-                    if let letter1 = step.position1?.letter {
-                        canvasStepsTextView.text += "\(letter1.rawValue)"
-                    }
-                    if let number1 = step.position1?.number {
-                        canvasStepsTextView.text += "\(number1) - "
-                    }
-                    
-                    if let letter2 = step.position2?.letter {
-                        canvasStepsTextView.text += "\(letter2.rawValue)"
-                    }
-                    if let number2 = step.position2?.number {
-                        canvasStepsTextView.text += "\(number2)\n"
-                    }
-                    
-                }
-                presenter.count = i;
-                presenter.isEditing = true
-            }
-            
-        }
     }
     
     private func prepareUI() {
         title = game.name
+        canvasStepsTextView.text = game.allSteps + "|"
     }
     
     private func setConfigure() {
         presenter = SOGPresenter(vc: self)
         viewModel = presenter.viewModel
     }
+
     
     private func setObserverForViewModel() {
         viewModel.addObserver(self, forKeyPath: "str", options: [.new], context: nil)
@@ -97,17 +47,35 @@ class SOGViewController: UIViewController {
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == "str" {
-            canvasStepsTextView.text += (change![.newKey] as! String)
+            let value = (change![.newKey] as! String)
+            canvasStepsTextView.text += value
         }
     }
     
     @IBAction func writeStepButtonClicked(_ sender: UIButton) {
         guard let symbol = sender.titleLabel!.text else { return }
+        presenter.deleteCursor()
         presenter.write(symbol)
+        presenter.setCursor()
     }
     
     @IBAction func deleteSymbolClicked(_ sender: UIButton) {
         presenter.deleteLastSymbol()
+        presenter.setCursor()
+    }
+    
+    @IBAction func signsButtonClicked(_ sender: UIButton) {
+        guard let symbol = sender.titleLabel!.text else { return }
+        presenter.deleteCursor()
+        presenter.addSign(symbol)
+        presenter.setCursor()
+    }
+    
+    @IBAction func stateStepButtonsClicked(_ sender: UIButton) {
+        guard let symbol = sender.titleLabel!.text else { return }
+        presenter.deleteCursor()
+        presenter.addStateStep(symbol)
+        presenter.setCursor()
     }
     
     @IBAction func back(_ sender: UIBarButtonItem) {

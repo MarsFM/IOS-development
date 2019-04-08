@@ -11,12 +11,11 @@ import Foundation
 class Game {
     
     var name: String
-    var colorOfChess: ColorOfChess
+    var colorOfChess: Color
     var description: String? = nil
-    var steps: [Step] = []
-    var witeParty: String = ""
+    var allSteps: String = "1."
     
-    init(name: String, colorOfChess: ColorOfChess = .black) {
+    init(name: String, colorOfChess: Color = .black) {
         self.name = name
         self.colorOfChess = colorOfChess
     }
