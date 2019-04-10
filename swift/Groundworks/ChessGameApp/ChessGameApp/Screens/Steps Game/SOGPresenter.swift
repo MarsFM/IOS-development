@@ -8,17 +8,16 @@
 
 import Foundation
 
-class SOGPresenter {
+class SOGPresenter: SOGPresenterProtocol {
     
     var checkSymbol = SOGCheckSymbol()
     weak var vc: SOGViewController?
-    var viewModel = SOGViewModel()
-    var game: Game!
+    var viewModel: SOGViewModel
     var count = 1
     
-    init(vc: SOGViewController) {
+    init(vc: SOGViewController, viewModel: SOGViewModel) {
         self.vc = vc
-        game = vc.game
+        self.viewModel = viewModel
         count = UserDefaults.standard.integer(forKey: "Count") 
     }
     
@@ -29,22 +28,22 @@ class SOGPresenter {
         
         if let figure = figure {
             viewModel.setValue(figure, forKey: "str")
-            game.allSteps += figure
+            viewModel.game.allSteps += figure
         }
         
         if let letter = letter {
             viewModel.setValue(letter, forKey: "str")
-            game.allSteps += letter
+            viewModel.game.allSteps += letter
         }
         
         if let number = number {
             viewModel.setValue(number, forKey: "str")
-            game.allSteps += number
+            viewModel.game.allSteps += number
         }
     }
     
     func deleteLastSymbol() {
-        var str = game.allSteps
+        var str = viewModel.game.allSteps
         guard !str.isEmpty else { return }
         let value = str.removeLast()
         if value == "\n" {
@@ -52,7 +51,7 @@ class SOGPresenter {
             UserDefaults.standard.set(count, forKey: "Count")
         }
         vc?.canvasStepsTextView.text = str
-        game.allSteps = str
+        viewModel.game.allSteps = str
     }
     
     func addSign(_ symbol: String) {
@@ -63,13 +62,13 @@ class SOGPresenter {
             UserDefaults.standard.set(count, forKey: "Count")
         }
         viewModel.setValue(value, forKey: "str")
-        game.allSteps += value
+        viewModel.game.allSteps += value
     }
     
     func addStateStep(_ symbol: String) {
         guard let stateString = checkSymbol.checkState(symbol) else { return }
         viewModel.setValue(stateString, forKey: "str")
-        game.allSteps += stateString
+        viewModel.game.allSteps += stateString
     }
     
     func deleteCursor() {

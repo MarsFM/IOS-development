@@ -13,26 +13,41 @@ class MainViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var newGameView: UIView!
     @IBOutlet weak var newGameButton: UIButton!
+    @IBOutlet weak var newGameBarButton: UIBarButtonItem!
+    
+    var viewModel = MainViewModel()
+    lazy var dataSource = MainDataSource(viewModel: viewModel)
     
     var games: [Game] = [] {
         didSet {
-            dataSource.games = games
+            viewModel.games = games
             tableView.reloadData()
         }
     }
     
-    var dataSource = MainDataSource()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tableView.tableFooterView = UIView(frame: .zero)
+        prepareUI()
         delegating()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        checkGameOnEmpty()
+    }
+    
+    private func prepareUI() {
+        tableView.tableFooterView = UIView(frame: .zero)
+    }
+    
+    private func delegating() {
+        tableView.delegate = self
+        tableView.dataSource = dataSource
+    }
+    
+    private func checkGameOnEmpty() {
         if (!games.isEmpty) {
             hideNewGameUI(true)
         } else {
@@ -43,11 +58,7 @@ class MainViewController: UIViewController {
     private func hideNewGameUI(_ value: Bool) {
         newGameView.isHidden = value
         newGameButton.isHidden = value
-    }
-    
-    private func delegating() {
-        tableView.delegate = self
-        tableView.dataSource = dataSource
+        newGameBarButton.isEnabled = value
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -63,15 +74,19 @@ class MainViewController: UIViewController {
             let nv = segue.destination as! UINavigationController
             let dvc = nv.topViewController as! SOGViewController
             if let indexPath = tableView.indexPathForSelectedRow {
-                dvc.game = games[indexPath.row]
+                dvc.viewModel = viewModel.goOnSreenOfSteps(index: indexPath.row)
                 dvc.isEdit = true
             }
         }
     }
     
-    @IBAction func back(segue: UIStoryboardSegue) {}
+    @IBAction func back(segue: UIStoryboardSegue) {} //unwind segue
     
     @IBAction func createNewGameButtonClicked(_ sender: UIButton) {
+        performSegue(withIdentifier: "NewGameSegue", sender: nil)
+    }
+    
+    @IBAction func createNewGameBarButtonClicked(_ sender: UIBarButtonItem) {
         performSegue(withIdentifier: "NewGameSegue", sender: nil)
     }
     

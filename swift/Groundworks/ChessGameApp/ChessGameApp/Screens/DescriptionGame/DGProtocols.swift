@@ -8,11 +8,15 @@
 
 import Foundation
 
-protocol DGProviderProtocol {
+protocol DGPresenterProtocol {
     var game: Game! { get }
     
     func checkFields() -> Bool
     func createGame(completion: @escaping () -> ())
     func setColor(_ index: Int)
     
+}
+
+protocol ViewModelProtocol {
+    func goOnSreenOfSteps() -> SOGViewModel
 }

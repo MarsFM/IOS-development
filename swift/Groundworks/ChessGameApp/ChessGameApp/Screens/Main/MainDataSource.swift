@@ -10,20 +10,20 @@ import UIKit
 
 class MainDataSource: NSObject, UITableViewDataSource {
     
-    var games: [Game] = []
+    let viewModel: MainViewModel!
+    
+    init(viewModel: MainViewModel) {
+        self.viewModel = viewModel
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return games.count
+        return viewModel.numberOfRows()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! MainCell
-        let game = games[indexPath.row]
-        cell.nameLabel.text = game.name
-        cell.typeColorLabel.text = game.colorOfChess.rawValue
-        if let description = game.description {
-            cell.descriptionLabel.text = description
-        }
+        let viewModel = self.viewModel.cellViewModel(at: indexPath.row) as? MainViewModelCell
+        cell.viewModel = viewModel
         return cell
     }
     

@@ -14,12 +14,14 @@ class DescriptionGameTableViewController: UITableViewController {
     @IBOutlet weak var colorSegmentControl: UISegmentedControl!
     @IBOutlet weak var descriptionTextView: UITextView!
     
-    var provider: DGProviderProtocol!
+    var presenter: DGPresenterProtocol!
+    var viewModel: ViewModelProtocol!
     var addToGames: ((Game) -> Void)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        provider = DescriptionGameProvider(vc: self)
+        presenter = DescriptionGameProvider(vc: self)
+        viewModel = ViewModel(game: presenter.game)
         
         prepareUITableView()
     }
@@ -32,19 +34,23 @@ class DescriptionGameTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let nc = segue.destination as! UINavigationController
         let vc = nc.topViewController as! SOGViewController
-        vc.game = provider.game
+        vc.viewModel = viewModel.goOnSreenOfSteps()
         vc.isEdit = false
     }
-
+    
     @IBAction func createGameButtonClicked(_ sender: UIButton) {
-        provider.createGame {
-            self.addToGames(self.provider.game)
+        presenter.createGame {
+            self.addToGames(self.presenter.game)
             self.performSegue(withIdentifier: "ShowStepsOfgame", sender: nil)
         }
     }
     
     @IBAction func chooseColorOfChessClicked(_ sender: UISegmentedControl) {
-        provider.setColor(sender.selectedSegmentIndex)
+        presenter.setColor(sender.selectedSegmentIndex)
     }
-
+    
+    @IBAction func cancelButtonClicked(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }

@@ -16,19 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-//        //let storyboardDescGame = UIStoryboard(name: "DescriptionGame", bundle: nil)
-//        let initialViewController = UIStoryboard(name: "DescriptionGame", bundle: nil).instantiateInitialViewController() as! DescriptionGameTableViewController
-//        
-//        window = UIWindow(frame: UIScreen.main.bounds)
-//        window!.rootViewController = initialViewController
-//        window!.makeKeyAndVisible()
-        
         UserDefaults.standard.set(1, forKey: "Count")
         return true
     }
-
+    
     
 
-
 }
-

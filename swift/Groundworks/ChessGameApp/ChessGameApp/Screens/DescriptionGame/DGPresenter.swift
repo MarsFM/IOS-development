@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DescriptionGameProvider: DGProviderProtocol {
+class DescriptionGameProvider: DGPresenterProtocol {
     
     weak var vc: DescriptionGameTableViewController!
     private(set) var game: Game!
@@ -27,7 +27,7 @@ class DescriptionGameProvider: DGProviderProtocol {
     func createGame(completion: @escaping () -> ()) {
         guard checkFields() else { return }
         
-        game = Game(name: vc.nameTextField.text!)
+        game.name = vc.nameTextField.text!
         
         if let text = vc.descriptionTextView.text {
             game.description = text

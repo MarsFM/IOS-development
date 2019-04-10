@@ -115,8 +115,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="qcr-wQ-kvm"/>
+                    <navigationItem key="navigationItem" id="qcr-wQ-kvm">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="tjJ-ma-rQb">
+                            <connections>
+                                <action selector="createNewGameBarButtonClicked:" destination="BYZ-38-t0r" id="vIr-5h-K3P"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="newGameBarButton" destination="tjJ-ma-rQb" id="SFO-DK-xdO"/>
                         <outlet property="newGameButton" destination="Wul-VU-nZq" id="oMA-Yx-DqA"/>
                         <outlet property="newGameView" destination="jQs-wI-VUY" id="xe2-K9-uwc"/>
                         <outlet property="tableView" destination="44M-fP-Tqy" id="TWI-ov-6AN"/>

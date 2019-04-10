@@ -18,26 +18,23 @@ class SOGViewController: UIViewController {
     
     var isEdit: Bool = false
     
-    var game: Game!
-    
     var viewModel: SOGViewModel!
-    var presenter: SOGPresenter!
+    var presenter: SOGPresenterProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        prepareUI()
         setConfigure()
+        prepareUI()
         setObserverForViewModel()
     }
     
     private func prepareUI() {
-        title = game.name
-        canvasStepsTextView.text = game.allSteps + "|"
+        title = viewModel.title
+        canvasStepsTextView.text = viewModel.cursor
     }
     
     private func setConfigure() {
-        presenter = SOGPresenter(vc: self)
-        viewModel = presenter.viewModel
+        presenter = SOGPresenter(vc: self, viewModel: viewModel)
     }
 
     private func setObserverForViewModel() {

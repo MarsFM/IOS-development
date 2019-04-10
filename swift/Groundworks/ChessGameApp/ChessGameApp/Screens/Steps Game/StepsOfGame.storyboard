@@ -395,7 +395,8 @@
                         <viewLayoutGuide key="safeArea" id="3W1-ok-DSN"/>
                     </view>
                     <navigationItem key="navigationItem" title="Game Game" id="k0x-ev-hEl">
-                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="RnR-tc-PeB">
+                        <barButtonItem key="leftBarButtonItem" title="Назад" id="RnR-tc-PeB">
+                            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="back:" destination="YNH-2e-821" id="0iV-sE-Lun"/>
                                 <segue destination="hgG-XB-wtg" kind="unwind" unwindAction="backWithSegue:" id="fTQ-lb-Gfa"/>
