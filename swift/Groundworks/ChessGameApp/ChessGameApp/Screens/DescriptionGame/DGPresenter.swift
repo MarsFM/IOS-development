@@ -7,15 +7,19 @@
 //
 
 import UIKit
+import CoreData
 
-class DescriptionGameProvider: DGPresenterProtocol {
+class DescriptionGamePresenter: DGPresenterProtocol {
     
     weak var vc: DescriptionGameTableViewController!
-    private(set) var game: Game!
+    private(set) var game: ChessGame!
     
-    init(vc: DescriptionGameTableViewController) {
+    var managedContext: NSManagedObjectContext
+    
+    init(vc: DescriptionGameTableViewController, managedContext: NSManagedObjectContext) {
         self.vc = vc
-        game = Game(name: "")
+        self.managedContext = managedContext
+        game = ChessGame(context: managedContext)
     }
     
     func checkFields() -> Bool {
@@ -27,23 +31,35 @@ class DescriptionGameProvider: DGPresenterProtocol {
     func createGame(completion: @escaping () -> ()) {
         guard checkFields() else { return }
         
+        game.notation = "1. "
+        game.count = Int32(1)
         game.name = vc.nameTextField.text!
         
         if let text = vc.descriptionTextView.text {
-            game.description = text
+            game.desc = text
         }
-        
+
         setColor(vc.colorSegmentControl!.selectedSegmentIndex)
+        
+        do {
+            try managedContext.save()
+        } catch {
+            print("Error")
+        }
         
         completion()
     }
     
     func setColor(_ index: Int) {
         switch index {
-        case 0: game.colorOfChess = .black
-        case 1: game.colorOfChess = .white
+        case 0: game.color = Color.black.rawValue
+        case 1: game.color = Color.white.rawValue
         default: break
         }
+    }
+    
+    func deleteGameFromContext() {
+        managedContext.delete(game)
     }
     
 }

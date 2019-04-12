@@ -2,7 +2,7 @@
 //  ChessGame+CoreDataProperties.swift
 //  ChessGameApp
 //
-//  Created by ilya on 11.04.2019.
+//  Created by ilya on 12.04.2019.
 //  Copyright © 2019 ilya. All rights reserved.
 //
 //
@@ -18,6 +18,7 @@ extension ChessGame {
     }
 
     @NSManaged public var color: String?
+    @NSManaged public var count: Int32
     @NSManaged public var desc: String?
     @NSManaged public var name: String?
     @NSManaged public var notation: String?

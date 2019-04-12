@@ -7,19 +7,33 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var initialViewController: UIViewController?
+    
+    lazy var coreDataStack = CoreDataStack(modelName: "ChessGameApp")
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        UserDefaults.standard.set(1, forKey: "Count")
+        guard let navController = window?.rootViewController as? UINavigationController,
+            let viewController = navController.topViewController as? MainViewController else {
+                return true
+        }
+        
+        viewController.managedContext = coreDataStack.managedContext
+        
         return true
     }
     
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        coreDataStack.saveContext()
+    }
     
+    func applicationWillTerminate(_ application: UIApplication) {
+        coreDataStack.saveContext()
+    }
 
 }

@@ -7,13 +7,16 @@
 //
 
 import UIKit
+import CoreData
 
 class MainDataSource: NSObject, UITableViewDataSource {
     
-    let viewModel: MainViewModel!
+    let viewModel: MainViewModel
+    let managedContext: NSManagedObjectContext
     
-    init(viewModel: MainViewModel) {
+    init(viewModel: MainViewModel, managedContext: NSManagedObjectContext) {
         self.viewModel = viewModel
+        self.managedContext = managedContext
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -25,6 +28,25 @@ class MainDataSource: NSObject, UITableViewDataSource {
         let viewModel = self.viewModel.cellViewModel(at: indexPath.row) as? MainViewModelCell
         cell.viewModel = viewModel
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let game = viewModel.currentGame(index: indexPath.row)
+            viewModel.games.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            NotificationCenter.default.post(name: NSNotification.Name("deleteGame"), object: nil)
+            managedContext.delete(game)
+            do {
+                try managedContext.save()
+            } catch {
+                print("error")
+            }
+        }
     }
     
 }

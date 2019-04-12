@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class DescriptionGameTableViewController: UITableViewController {
     
@@ -16,11 +17,12 @@ class DescriptionGameTableViewController: UITableViewController {
     
     var presenter: DGPresenterProtocol!
     var viewModel: ViewModelProtocol!
-    var addToGames: ((Game) -> Void)!
+    var managedContext: NSManagedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = DescriptionGameProvider(vc: self)
+        presenter = DescriptionGamePresenter(vc: self, managedContext: managedContext)
+    
         viewModel = ViewModel(game: presenter.game)
         
         prepareUITableView()
@@ -35,12 +37,12 @@ class DescriptionGameTableViewController: UITableViewController {
         let nc = segue.destination as! UINavigationController
         let vc = nc.topViewController as! SOGViewController
         vc.viewModel = viewModel.goOnSreenOfSteps()
+        vc.managedContext = managedContext
         vc.isEdit = false
     }
     
     @IBAction func createGameButtonClicked(_ sender: UIButton) {
         presenter.createGame {
-            self.addToGames(self.presenter.game)
             self.performSegue(withIdentifier: "ShowStepsOfgame", sender: nil)
         }
     }
@@ -50,6 +52,7 @@ class DescriptionGameTableViewController: UITableViewController {
     }
     
     @IBAction func cancelButtonClicked(_ sender: UIBarButtonItem) {
+        presenter.deleteGameFromContext()
         dismiss(animated: true, completion: nil)
     }
     

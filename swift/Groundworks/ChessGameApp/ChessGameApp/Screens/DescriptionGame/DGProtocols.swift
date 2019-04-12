@@ -7,14 +7,15 @@
 //
 
 import Foundation
+import CoreData
 
 protocol DGPresenterProtocol {
-    var game: Game! { get }
+    var game: ChessGame! { get }
     
     func checkFields() -> Bool
     func createGame(completion: @escaping () -> ())
     func setColor(_ index: Int)
-    
+    func deleteGameFromContext()
 }
 
 protocol ViewModelProtocol {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SOGViewController: UIViewController {
     
@@ -20,6 +21,7 @@ class SOGViewController: UIViewController {
     
     var viewModel: SOGViewModel!
     var presenter: SOGPresenterProtocol!
+    var managedContext: NSManagedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()

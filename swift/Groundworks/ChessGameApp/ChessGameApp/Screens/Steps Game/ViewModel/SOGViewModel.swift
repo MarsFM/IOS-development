@@ -10,23 +10,23 @@ import Foundation
 
 class SOGViewModel: NSObject {
     
-    var game: Game
+    var game: ChessGame
     
-    init(game: Game) {
+    init(game: ChessGame) {
         self.game = game
     }
     
     @objc var str: String = ""
     
     var title: String {
-        return game.name
+        return game.name ?? ""
     }
     
     var cursor: String {
-        return game.allSteps + "|"
+        return (game.notation ?? "") + "|"
     }
     
-    func setGame(game: Game) {
+    func setGame(game: ChessGame) {
         self.game = game
     }
     

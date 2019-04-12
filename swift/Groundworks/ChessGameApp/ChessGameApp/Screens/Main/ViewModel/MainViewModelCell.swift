@@ -10,22 +10,22 @@ import Foundation
 
 class MainViewModelCell: MainViewModelCellProtocol {
     
-    let game: Game
+    let game: ChessGame
     
-    init(game: Game) {
+    init(game: ChessGame) {
         self.game = game
     }
     
     var name: String {
-        return game.name
+        return game.name ?? ""
     }
     
     var color: String {
-        return "Играю: \(game.colorOfChess.rawValue)"
+        return game.color ?? ""
     }
     
     var description: String? {
-        return game.description
+        return game.desc
     }
     
 }

@@ -7,18 +7,20 @@
 //
 
 import Foundation
+import CoreData
 
 class SOGPresenter: SOGPresenterProtocol {
     
     var checkSymbol = SOGCheckSymbol()
     weak var vc: SOGViewController?
     var viewModel: SOGViewModel
-    var count = 1
+    
+    var managedContext: NSManagedObjectContext!
     
     init(vc: SOGViewController, viewModel: SOGViewModel) {
         self.vc = vc
         self.viewModel = viewModel
-        count = UserDefaults.standard.integer(forKey: "Count") 
+        self.managedContext = vc.managedContext
     }
     
     func write(_ symbol: String) {
@@ -28,47 +30,57 @@ class SOGPresenter: SOGPresenterProtocol {
         
         if let figure = figure {
             viewModel.setValue(figure, forKey: "str")
-            viewModel.game.allSteps += figure
+            guard viewModel.game.notation != nil else { return }
+            viewModel.game.notation! += figure
+            save()
         }
         
         if let letter = letter {
             viewModel.setValue(letter, forKey: "str")
-            viewModel.game.allSteps += letter
+            guard viewModel.game.notation != nil else { return }
+            viewModel.game.notation! += letter
+            save()
         }
         
         if let number = number {
             viewModel.setValue(number, forKey: "str")
-            viewModel.game.allSteps += number
+            guard viewModel.game.notation != nil else { return }
+            viewModel.game.notation! += number
+            save()
         }
+        
     }
     
     func deleteLastSymbol() {
-        var str = viewModel.game.allSteps
+        guard var str = viewModel.game.notation else { return }
         guard !str.isEmpty else { return }
         let value = str.removeLast()
         if value == "\n" {
-            count -= 1
-            UserDefaults.standard.set(count, forKey: "Count")
+            viewModel.game.count -= 1
         }
         vc?.canvasStepsTextView.text = str
-        viewModel.game.allSteps = str
+        viewModel.game.notation = str
+        save()
     }
     
     func addSign(_ symbol: String) {
         guard var value = checkSymbol.checkSigns(symbol) else { return }
         if value == "\n" {
-            count += 1
-            value += "\(count)."
-            UserDefaults.standard.set(count, forKey: "Count")
+            viewModel.game.count += 1
+            value += "\(viewModel.game.count)."
         }
         viewModel.setValue(value, forKey: "str")
-        viewModel.game.allSteps += value
+        guard viewModel.game.notation != nil else { return }
+        viewModel.game.notation! += value
+        save()
     }
     
     func addStateStep(_ symbol: String) {
         guard let stateString = checkSymbol.checkState(symbol) else { return }
         viewModel.setValue(stateString, forKey: "str")
-        viewModel.game.allSteps += stateString
+        guard viewModel.game.notation != nil else { return }
+        viewModel.game.notation! += stateString
+        save()
     }
     
     func deleteCursor() {
@@ -79,6 +91,14 @@ class SOGPresenter: SOGPresenterProtocol {
     func setCursor() {
         guard !vc!.canvasStepsTextView!.text!.isEmpty else { return }
         vc?.canvasStepsTextView.text += "|"
+    }
+    
+    private func save() {
+        do {
+            try managedContext.save()
+        } catch {
+            print("Error")
+        }
     }
     
 }

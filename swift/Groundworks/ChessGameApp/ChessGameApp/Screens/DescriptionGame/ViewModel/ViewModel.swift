@@ -10,9 +10,9 @@ import Foundation
 
 class ViewModel: ViewModelProtocol {
  
-    let game: Game
+    let game: ChessGame
     
-    init(game: Game) {
+    init(game: ChessGame) {
         self.game = game
     }
     

@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import CoreData
 
 protocol SOGPresenterProtocol {
     
     var viewModel: SOGViewModel { get set }
+    var managedContext: NSManagedObjectContext! { get set }
     
     func write(_ symbol: String)
     func deleteLastSymbol()

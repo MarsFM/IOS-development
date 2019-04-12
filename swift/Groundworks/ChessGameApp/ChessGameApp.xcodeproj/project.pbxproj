@@ -18,6 +18,10 @@
 		093CD7C1225DE7EB0060F816 /* MainViewModelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093CD7C0225DE7EB0060F816 /* MainViewModelCell.swift */; };
 		093CD7C3225DEF530060F816 /* SOGProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093CD7C2225DEF530060F816 /* SOGProtocols.swift */; };
 		093CD7C9225DF7DE0060F816 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093CD7C8225DF7DE0060F816 /* ViewModel.swift */; };
+		093CD7CC225E31A30060F816 /* ChessGameApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 093CD7CA225E31A30060F816 /* ChessGameApp.xcdatamodeld */; };
+		09488261225F339800ACAB74 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09488260225F339800ACAB74 /* CoreDataStack.swift */; };
+		094EBE372261004E00FC90C5 /* ChessGame+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094EBE352261004E00FC90C5 /* ChessGame+CoreDataClass.swift */; };
+		094EBE382261004E00FC90C5 /* ChessGame+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094EBE362261004E00FC90C5 /* ChessGame+CoreDataProperties.swift */; };
 		097201F0224CF2FA0002C83C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097201EF224CF2FA0002C83C /* AppDelegate.swift */; };
 		097201F2224CF2FA0002C83C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097201F1224CF2FA0002C83C /* MainViewController.swift */; };
 		097201F5224CF2FA0002C83C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 097201F3224CF2FA0002C83C /* Main.storyboard */; };
@@ -47,6 +51,10 @@
 		093CD7C0225DE7EB0060F816 /* MainViewModelCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelCell.swift; sourceTree = "<group>"; };
 		093CD7C2225DEF530060F816 /* SOGProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SOGProtocols.swift; sourceTree = "<group>"; };
 		093CD7C8225DF7DE0060F816 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		093CD7CB225E31A30060F816 /* ChessGameApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ChessGameApp.xcdatamodel; sourceTree = "<group>"; };
+		09488260225F339800ACAB74 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
+		094EBE352261004E00FC90C5 /* ChessGame+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChessGame+CoreDataClass.swift"; sourceTree = "<group>"; };
+		094EBE362261004E00FC90C5 /* ChessGame+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChessGame+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		097201EC224CF2FA0002C83C /* ChessGameApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChessGameApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		097201EF224CF2FA0002C83C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		097201F1224CF2FA0002C83C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +98,8 @@
 		091679B1224D356300FD69C0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				094EBE352261004E00FC90C5 /* ChessGame+CoreDataClass.swift */,
+				094EBE362261004E00FC90C5 /* ChessGame+CoreDataProperties.swift */,
 				09155D53225336290076D10E /* Game.swift */,
 				09EBD8E12253B12400E6D837 /* Figure.swift */,
 				09C56E00225B4A500079112B /* Letter.swift */,
@@ -124,6 +134,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		0948825F225F338900ACAB74 /* CoreDataStack */ = {
+			isa = PBXGroup;
+			children = (
+				09488260225F339800ACAB74 /* CoreDataStack.swift */,
+			);
+			path = CoreDataStack;
+			sourceTree = "<group>";
+		};
 		097201E3224CF2FA0002C83C = {
 			isa = PBXGroup;
 			children = (
@@ -143,9 +161,10 @@
 		097201EE224CF2FA0002C83C /* ChessGameApp */ = {
 			isa = PBXGroup;
 			children = (
+				09720201224CF8290002C83C /* Supporting Files */,
+				0948825F225F338900ACAB74 /* CoreDataStack */,
 				091679B1224D356300FD69C0 /* Model */,
 				091679A7224CFBCC00FD69C0 /* Screens */,
-				09720201224CF8290002C83C /* Supporting Files */,
 			);
 			path = ChessGameApp;
 			sourceTree = "<group>";
@@ -157,6 +176,7 @@
 				097201F6224CF2FB0002C83C /* Assets.xcassets */,
 				097201F8224CF2FB0002C83C /* LaunchScreen.storyboard */,
 				097201FB224CF2FB0002C83C /* Info.plist */,
+				093CD7CA225E31A30060F816 /* ChessGameApp.xcdatamodeld */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -286,18 +306,22 @@
 				091679AB224CFDF800FD69C0 /* DGTableViewController.swift in Sources */,
 				0939DFE02254E02300C27CCD /* SOGViewModel.swift in Sources */,
 				093CD7BD225DE11D0060F816 /* MainProtocols.swift in Sources */,
+				09488261225F339800ACAB74 /* CoreDataStack.swift in Sources */,
 				09155D56225336500076D10E /* Color.swift in Sources */,
 				098D6E062255DBF00026778F /* MainViewModel.swift in Sources */,
 				09FFFF6E2257715E00D22B89 /* SOGCheckSymbol.swift in Sources */,
 				09EBD8E22253B12400E6D837 /* Figure.swift in Sources */,
 				09EBD8E02253A60100E6D837 /* DGProtocols.swift in Sources */,
+				094EBE372261004E00FC90C5 /* ChessGame+CoreDataClass.swift in Sources */,
 				091679B4224D359500FD69C0 /* DGPresenter.swift in Sources */,
 				09C56E01225B4A500079112B /* Letter.swift in Sources */,
 				093CD7C9225DF7DE0060F816 /* ViewModel.swift in Sources */,
 				097201F2224CF2FA0002C83C /* MainViewController.swift in Sources */,
 				097201F0224CF2FA0002C83C /* AppDelegate.swift in Sources */,
+				094EBE382261004E00FC90C5 /* ChessGame+CoreDataProperties.swift in Sources */,
 				093CD7C1225DE7EB0060F816 /* MainViewModelCell.swift in Sources */,
 				09155D54225336290076D10E /* Game.swift in Sources */,
+				093CD7CC225E31A30060F816 /* ChessGameApp.xcdatamodeld in Sources */,
 				0939DFDC2254A22300C27CCD /* SOGPresenter.swift in Sources */,
 				098D6E092255F6740026778F /* MainCell.swift in Sources */,
 				09EBD8DE2253A50000E6D837 /* SOGViewController.swift in Sources */,
@@ -500,6 +524,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		093CD7CA225E31A30060F816 /* ChessGameApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				093CD7CB225E31A30060F816 /* ChessGameApp.xcdatamodel */,
+			);
+			currentVersion = 093CD7CB225E31A30060F816 /* ChessGameApp.xcdatamodel */;
+			path = ChessGameApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 097201E4224CF2FA0002C83C /* Project object */;
 }

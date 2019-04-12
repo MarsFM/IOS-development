@@ -10,13 +10,13 @@ import Foundation
 
 class MainViewModel: MainViewModelProtocol {
 
-    var games: [Game] = []
+    var games: [ChessGame] = []
     
     func numberOfRows() -> Int {
         return games.count
     }
     
-    func currentGame(index: Int) -> Game {
+    func currentGame(index: Int) -> ChessGame {
         return games[index]
     }
     
@@ -26,7 +26,7 @@ class MainViewModel: MainViewModelProtocol {
         return viewModelCell
     }
     
-    func goOnSreenOfSteps(index: Int) -> SOGViewModel {
+    func goToSreenOfSteps(index: Int) -> SOGViewModel {
         let game = games[index]
         let viewModel = SOGViewModel(game: game)
         return viewModel

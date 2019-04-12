@@ -10,9 +10,9 @@ import Foundation
 
 protocol MainViewModelProtocol {
     func numberOfRows() -> Int
-    func currentGame(index: Int) -> Game
+    func currentGame(index: Int) -> ChessGame
     func cellViewModel(at index: Int) -> MainViewModelCellProtocol
-    func goOnSreenOfSteps(index: Int) -> SOGViewModel
+    func goToSreenOfSteps(index: Int) -> SOGViewModel
 }
 
 protocol MainViewModelCellProtocol {
