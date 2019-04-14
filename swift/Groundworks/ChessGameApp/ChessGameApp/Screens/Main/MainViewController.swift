@@ -44,7 +44,6 @@ class MainViewController: UIViewController {
         checkGameOnEmpty()
     }
     
-    
     private func fetchChessGames() {
         let fetchRequest: NSFetchRequest<ChessGame> = ChessGame.fetchRequest()
         do {

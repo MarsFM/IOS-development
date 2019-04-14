@@ -41,11 +41,15 @@ class MainDataSource: NSObject, UITableViewDataSource {
             tableView.deleteRows(at: [indexPath], with: .automatic)
             NotificationCenter.default.post(name: NSNotification.Name("deleteGame"), object: nil)
             managedContext.delete(game)
-            do {
-                try managedContext.save()
-            } catch {
-                print("error")
-            }
+            save()
+        }
+    }
+    
+    private func save() {
+        do {
+            try managedContext.save()
+        } catch {
+            print("error")
         }
     }
     

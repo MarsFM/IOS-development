@@ -40,13 +40,7 @@ class DescriptionGamePresenter: DGPresenterProtocol {
         }
 
         setColor(vc.colorSegmentControl!.selectedSegmentIndex)
-        
-        do {
-            try managedContext.save()
-        } catch {
-            print("Error")
-        }
-        
+        save()
         completion()
     }
     
@@ -60,6 +54,14 @@ class DescriptionGamePresenter: DGPresenterProtocol {
     
     func deleteGameFromContext() {
         managedContext.delete(game)
+    }
+    
+    private func save() {
+        do {
+            try managedContext.save()
+        } catch {
+            print("Error")
+        }
     }
     
 }
