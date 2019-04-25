@@ -10,6 +10,8 @@
 
 [5. TIC TAC TOE](https://github.com/MarsFM/IOS-development/tree/master/swift/Groundworks/tic_tac_toe)
 
+[5. Challenges](https://github.com/MarsFM/IOS-development/tree/master/swift/Groundworks/Challenges)
+
 ## Иcпользовал 
 
 - CoreData
